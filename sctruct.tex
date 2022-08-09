@@ -1,0 +1,91 @@
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel} % change to your own language
+
+\usepackage[top=1.5cm,bottom=1cm,left=1cm,right=1cm,headsep=10pt,a4paper]{geometry} % Page margins
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{png/}} % Specifies the directory where pictures are stored
+
+% Non hifenize:
+\usepackage[none]{hyphenat}
+\usepackage{ifthen}
+\usepackage{scalefnt}
+\usepackage[listings,skins,breakable]{tcolorbox}
+
+
+\usepackage{xcolor} % Required for specifying colors by name
+% colors
+\definecolor{azul}{HTML}{002244}
+\definecolor{vermelho}{HTML}{600404}
+\definecolor{dourado}{HTML}{bb953d}
+
+
+
+\usepackage[pages=some]{background}
+
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=1,
+angle=0,
+contents={%
+  \includegraphics[width=\paperwidth,height=\paperheight]{png/bordas}
+  }%
+}
+
+
+
+%% Command to insert the default page
+\newcommand{\para}[5]{
+\BgThispage
+~
+\vskip 1cm
+
+\begin{center}
+{\scalefont{2} \sc \color{vermelho} Certificado}\\[5pt]
+{\scalefont{1.5} \sc \color{azul} Programa de Pós-graduação em Matemática\\ Departamento de Matemática\\[8pt] Universidade Estadual de Maringá}
+%{\scalefont{1.3} \sc \color{azul} 13 e 14 de Novembro de 2019 -- Maringá}\\
+\end{center}
+
+\vskip 2cm
+
+\hskip 10pt
+	\begin{center}
+\begin{minipage}{0.7\textwidth}
+	\scalefont{1.5}
+		
+		% ministrante de minicurso 
+		\ifthenelse{\equal{#3}{mini}}{Certificamos que {\sc #1} ministrou o minicurso de ``{\bf #2}'', realizado no Departamento XXX da Universidade Realizadora ou Instituição, com carga horária de #4 hora(s), realizado nos dias 13 e 14 de Novembro de 2019. \\}{}
+
+		% participante de minicurso
+		\ifthenelse{\equal{#3}{part}}{Certificamos que {\sc #1} participou do minicurso de  ``{\bf #2}'', realizado no Departamento XXX da Universidade Realizadora ou Instituição, com carga horária de #4 hora(s), realizado nos dias 13 e 14 de Novembro de 2019. \\}{}
+
+		% participante de minicurso
+		\ifthenelse{\equal{#3}{palestra-pma}}{Certificamos que {\sc #1} ministrou uma palestra intitulada ``{\bf #2}'', nos Seminários do PMA, organizados pelo Programa de Pós-graduação em Matemática do Departamento de Matemática da Universidade Estadual de Maringá, realizada em #5. \\}{}
+
+\end{minipage}
+	\end{center}
+
+\vskip -1cm
+	\begin{minipage}{0.2\textwidth}
+	~
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\scalefont{1.1}
+		\hskip 20pt\includegraphics[width=3cm]{png/assinatura}\\[-42pt]
+		\rule{8cm}{1pt}\\[5pt]
+		Prof. Dr. Francisco Nogueira Calmon Sobral\\
+		Organizador dos seminários \\
+		Maringá, \today
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\vskip 1cm
+		\includegraphics[width=7cm]{png/logo}
+	\end{minipage}
+
+
+\vfill
+\newpage
+
+}
+
+
